@@ -1,0 +1,339 @@
+*,*:before,*:after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+* {
+	font-family: Malgun Gothic;
+	color: #323232;
+}
+body, input {
+	font-size:12px;
+}
+ul, li {
+	list-style: none;
+}
+
+a {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.login {
+	height: 100vh;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+.top {
+	margin: 36px 0 120px 0;
+	text-align: right;
+	width: 1040px;
+}
+.top select {
+	width: 100px;
+	height: 32px;
+	border-color: #d1d5da;
+	background-color: #fcfcfd;
+	padding-left: 8px;
+}
+.login .left {
+    display: flex;
+    justify-content: center;
+    width: 1040px;
+}
+.container {
+	margin-right: 110px;
+	width: 565px;
+}
+.login .sub_title {
+	font-size: 52px;
+	font-weight: bold;
+	color: #2b2c43;
+}
+.login .title_desc1 {
+	font-size: 28px;
+}
+.login .title_desc2 {
+	font-size: 18px;
+	color: #7e8692;
+	text-align: left;
+	line-height: 30px;
+}
+.login .title_desc2 span {
+	color: #2b2c43;
+	font-weight: bold;
+}
+.content input {
+	margin-bottom: 24px;
+}
+
+.header {
+	margin-bottom: 50px;
+	text-align: center;
+	white-space: nowrap;
+}
+.header div {
+	margin-bottom: 10px;
+}
+input[type='text'],input[type='password'] {
+	width: 100%;
+	border: 1px solid #bec2c8;
+	border-radius: 3px;
+	padding: 10px;
+	transition: all 0.5s;
+	resize: none;
+	height: 50px;
+}
+input[type='text']::placeholder {
+	color:rgba(0,0,0,0.5);
+}
+:-ms-input-placeholder {
+	color: rgba(0,0,0,0.5);
+}
+.btn_login {
+	display: block;
+	width: 100%;
+	background-color: #090963;
+	font-size: 20px;
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+    margin-top: 42px;
+    padding: 17px;
+	font-weight: bold;
+}
+
+.checkbox,.radio {
+	margin-right: 42px;
+	font-size: 15px;
+    display: inline-flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+.checkbox:first-child,.radio:first-child {
+    margin-right: 42px;
+}
+
+.checkbox input[type="checkbox"] + i + span,.radio input[type="radio"] + i + span {
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+/*라디오,체크박스*/
+.checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox input[type="checkbox"] + i {
+    background: url("/image/checkbox.png") no-repeat;
+    background-position: 0 -21px;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+}
+
+.checkbox input[type="checkbox"]:checked + i {
+    background-position: 0 0;
+}
+
+.radio input[type="radio"] {
+    display: none;
+}
+
+.radio input[type="radio"] + i {
+    display: inline-block;
+    background: url("/image/radio.png") no-repeat;
+    background-position: 0 -21px;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+}
+
+.radio input[type="radio"]:checked + i {
+    background-position: 0 0;
+}
+
+.ui-widget.ui-widget-content {
+	position: absolute;
+	padding: 0;
+	margin: 0;
+	background-color: #fff;
+	border-radius: 2px;
+	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
+}
+.ui-dialog[aria-describedby='confirm'] .ui-dialog-titlebar {
+	display:none;
+}
+.ui-dialog .ui-widget-header {
+	padding: 13px 20px;
+	background: #444;
+	border: none;
+	border-radius: 2px 2px 0 0;
+	display: flex;
+	align-content: center;
+	justify-content: space-between;
+	align-items: center;
+}
+.ui-dialog .ui-widget-header .ui-dialog-title {
+	font-size: 16px;
+	color: #fff;
+}
+.ui-dialog-titlebar-close {
+	border: none;
+	background: none;
+	cursor: pointer;
+	line-height: 21px;
+	width: 14px;
+	height: 21px;
+}
+
+.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .ui-icon-closethick {
+	height: 21px;
+	text-align: center;
+	text-indent: 0;
+	background: none;
+	color: rgba(255,255,255,.7);
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.ui-dialog .ui-widget-header .ui-dialog-titlebar-close .ui-icon-closethick:hover {
+	color: #fff;
+}
+
+.ui-widget-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(34, 34, 34, 0.5);
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+	margin: 0;
+	text-align: center;
+	padding: 0 20px 15px;
+}
+
+.ui-dialog-buttonset {
+	border-top: 1px #ddd solid;
+	padding-top: 10px;
+}
+.ui-dialog-buttonset button {
+	font-size: 12px;
+}
+
+.ui-dialog-content {
+	padding: 10px;
+}
+.ui-widget-content {
+	border: none;
+}
+
+.ui-front {
+	z-index: 100;
+}
+
+.popup_msg {
+	text-align: center;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	min-height: 100px;
+}
+.popup_msg>span {
+	font-size: 14px;
+}
+.ui-dialog-buttonset>.btn {
+    height: 34px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    min-width: 24px;
+    min-height: 24px;
+    padding: 0 10px;
+    outline: 0;
+    border-radius: 5px;
+    line-height: 1.5;
+    transition: all .2s;
+    margin-left: 7px;
+    border: 1px solid #d3d3d3;
+    background-color: #fff;
+    color: #888;
+    cursor: pointer;
+    font-weight: normal;
+}
+.ui-dialog-buttonset>.btn:hover {
+	background-color: #ebebeb;
+	color: #222;
+}
+
+.loading-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	/*background-color: rgba(34, 34, 34, 0.5);*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 9999;
+}
+.loading-container .loading {
+	display: inline-block;
+    width: 100px;
+    height: 100px;
+    border: 3px solid rgba(0,0,0,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+.loading-container .loading_text {
+	animation: loading-text-opacity 2s linear 0s infinite normal;
+    color: rgba(0,0,0,.3);
+    font-family: "Helvetica Neue, "Helvetica", ""arial";
+    font-size: 10px;
+    font-weight: bold;
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100px;
+}
+
+.btn_park{
+	margin-top: 5px;
+	margin-left: 7px;
+	padding: 0 5px;
+	float: right;
+	border: 1px solid #d3d3d3;
+	background-color: #fff;
+	color: #888;
+}
+
+.btn_park:hover {
+	background-color: #ebebeb;
+	color: #222;
+}
+
+@keyframes spin {
+  to {-webkit-transform: rotate(360deg);}
+}
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+@keyframes loading-text-opacity {
+    0%  {opacity: 0}
+    20% {opacity: 0}
+    50% {opacity: 1}
+    100%{opacity: 0}
+}

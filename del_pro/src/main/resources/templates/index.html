@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="./static/css/common.css"/>
+<script src="/script/jquery-3.6.0.js"></script>
+<script src="/script/jquery-ui.js"></script>
+<script src="/script/common.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	var columnForm=$("#columnForm")
+    var index =0;
+	
+    $("#insertButton").click(function() {
+    	var newDiv = document.createElement("div");
+        newDiv.setAttribute("class", "newDiv");
+
+        var newInputCol = document.createElement("input");
+        newInputCol.setAttribute("id", "newInputCol"+index);
+        newInputCol.setAttribute("name", "nameInputCol"+index);
+        newInputCol.setAttribute("type", "text");
+        newInputCol.placeholder="컬럼입력"+(index+1);
+        
+        var newInputType = document.createElement("input");
+        newInputType.setAttribute("id", "newInputType"+index);
+        newInputType.setAttribute("name", "newInputType"+index);
+        newInputType.setAttribute("type", "text");
+        newInputType.placeholder="타입입력"+(index+1);
+        
+        var newInputCheck = document.createElement("input");
+        newInputCheck.setAttribute("id","newInputCheck"+index);
+        newInputCheck.setAttribute("type","checkbox");
+        
+        var removeInput = document.createElement("span");
+        removeInput.setAttribute("class", "removeInput");
+        removeInput.textContent = "삭제";
+        
+        newDiv.append(newInputCol);
+        newDiv.append(newInputType);
+        newDiv.append("pk여부");
+        newDiv.append(newInputCheck);
+        newDiv.append(removeInput);
+        columnForm.append(newDiv);
+        index+=1;
+        
+    });
+    
+    $(document).on("click", ".removeInput", function () {
+        $(this).parent(".newDiv").remove();
+        resetIndex();
+    })
+
+    function resetIndex(){
+        index = 0;
+        columnForm.children('div').each(function (){
+            var target = $(this).children(index, 'input[type=text]');
+            target.attr("id", "newInputCol"+index);
+            target.attr("placeholder","컬럼입력"+(index+1));
+            index+=1;
+        })
+        
+    }
+    
+    $("#insertButton").trigger("click")
+    
+    $("#gkrls").click(function() {
+    	var selectDatabase = document.getElementById('select_value');
+    	var selectDatabase = selectDatabase.options[selectDatabase.selectedIndex].value
+    	console.log(selectDatabase)
+    	var tableName=document.getElementById('tableName').value;
+    	var pkArray = new Array();
+    	var columnArray=new Array();
+    	var typeArray=new Array();
+    	for(var i=0;i<index;i++){
+    		if(document.getElementById('newInputCheck'+i).checked){
+    			pkArray.push(true);
+    		}else{
+    			pkArray.push(false);
+    		}
+    		columnArray.push(document.getElementById('newInputCol'+i).value);
+    		typeArray.push(document.getElementById('newInputType'+i).value);
+    	}
+    	ajaxCall({
+    		url:"/createQuery",
+    		param: {dbType:selectDatabase, tableName:tableName, columnList:columnArray, typeList: typeArray, pkList:pkArray},
+    		func : function(data) {
+    			return;
+    		}
+    	})
+    });
+}); 
+</script>
+</head>
+<body>
+  <select id = "select_value">
+  <option value = "mysql" >Mysql</option>
+  <option value = "oracle" >Oracle</option>
+  <option value = "hive" >Hive</option>
+  <option value = "kudu" >Kudu</option>
+  </select><br>
+테이블명: <input type="text" id="tableName">
+<form id="columnForm">
+</form>
+<a id="insertButton" class="btn btn_c">추가</a>
+<a id="gkrls">하긴</a>
+</body>
+</html>
